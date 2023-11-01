@@ -1,17 +1,10 @@
-import { useQuery } from "react-query";
 import { useParams } from "react-router";
-import { fetchPost } from "../api";
+import { useGetPost } from "../hooks";
 
 const PostPage = () => {
   const { postId } = useParams();
 
-  const { data: post } = useQuery({
-    queryKey: ["fetchPost", postId],
-    queryFn: () => fetchPost({ postId: postId as string }),
-
-    enabled: postId !== undefined,
-    refetchOnWindowFocus: false,
-  });
+  const { data: post } = useGetPost({ postId });
 
   return (
     <div>
