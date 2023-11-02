@@ -1,5 +1,4 @@
 import { sum } from "./sum";
-import { expect, describe, test } from "vitest";
 
 describe("check if sum works well", () => {
   test("1 add 2 should equal to 3", () => {
