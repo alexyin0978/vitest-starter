@@ -26,7 +26,7 @@ const Posts = () => {
         <>
           {postList
             .filter((post) => {
-              if (keyword === "") return post;
+              if (keyword === "") return true;
               return post.title.includes(keyword);
             })
             .map((post, idx) => (
