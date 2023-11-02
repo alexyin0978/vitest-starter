@@ -4,11 +4,13 @@ function App() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div data-testid="app">
       this is Home page
       <div>
         click here to go to Posts page:
-        <button onClick={() => navigate("/posts")}>Go to Posts page</button>
+        <button data-testid="app__link" onClick={() => navigate("/posts")}>
+          Go to Posts page
+        </button>
       </div>
     </div>
   );
