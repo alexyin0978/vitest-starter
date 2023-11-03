@@ -8,9 +8,18 @@ const SearchBar = (props: SearchBarProps) => {
   const { onChange, onClear, value } = props;
 
   return (
-    <div>
-      Search: <input value={value} onChange={(e) => onChange(e.target.value)} />
-      <button style={{ marginLeft: "8px" }} onClick={onClear}>
+    <div data-testid="search-bar">
+      Search:{" "}
+      <input
+        data-testid="search-bar__input"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+      <button
+        data-testid="search-bar__clear-btn"
+        style={{ marginLeft: "8px" }}
+        onClick={onClear}
+      >
         clear
       </button>
     </div>
