@@ -1,22 +1,22 @@
 import { useParams } from "react-router";
 import { useGetPost } from "../hooks";
 
-const PostPage = () => {
+const PostPage = ({ mockPostId }: { mockPostId?: "1" }) => {
   const { postId } = useParams();
 
-  const { data: post } = useGetPost({ postId });
+  const { data: post } = useGetPost({ postId: mockPostId || postId });
 
   return (
-    <div>
+    <div data-testid="post-page">
       this is post-page {postId}
       <div>
         {!post ? (
-          "loading..."
+          <div data-testid="post-page__loading">loading...</div>
         ) : (
-          <>
+          <div data-testid="post-page__post">
             <h3>Title: {post.title}</h3>
-            <p>Body: {post.body}</p>
-          </>
+            <p data-testid="post-page__post__body">Body: {post.body}</p>
+          </div>
         )}
       </div>
     </div>
