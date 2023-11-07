@@ -18,12 +18,12 @@ const Posts = () => {
   };
 
   return (
-    <div>
+    <div data-testid="posts">
       <SearchBar value={keyword} onChange={onChange} onClear={onClear} />
       {!postList ? (
-        "loading posts..."
+        <div data-testid="posts__loading">loading posts...</div>
       ) : (
-        <>
+        <div data-testid="posts__list-container">
           {postList
             .filter((post) => {
               if (keyword === "") return true;
@@ -46,7 +46,7 @@ const Posts = () => {
                 <div>{post.title}</div>
               </div>
             ))}
-        </>
+        </div>
       )}
     </div>
   );
